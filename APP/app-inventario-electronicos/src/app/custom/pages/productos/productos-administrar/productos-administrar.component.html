@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Registro de Producto</h5>
+      </div>
+      <div class="card-block">
+        <form #insertForm="ngForm" (ngSubmit)="save(insertForm, $event)" class="form-material">
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.codigo_upc" required type="text" name="codigo_upc" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Codigo UPC</label>
+          </div>
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.nombre" required type="text" name="nombre" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Nombre</label>
+          </div>
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.categoria" required type="text" name="categoria" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Categoria</label>
+          </div>
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.proveedor" required type="text" name="proveedor" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Proveedor</label>
+          </div>
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.precio_costo" required type="number" name="precio_costo" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Precio (Costo)</label>
+          </div>
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.precio_venta" required type="number" name="precio_venta" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Precio (Venta)</label>
+          </div>
+
+          <button class="btn btn-inverse btn-block ripple light">
+            <span>Guardar</span>
+            <span class="loadering"></span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Lista de Productos</h5>
+      </div>
+      <div class="card-block">
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="dt-cust-search float-right">
+              <div class="form-group">
+                <label>Buscar: </label>
+                <input
+                  type='text'
+                  class="form-control input-sm m-l-10"
+                  placeholder=''
+                  (keyup)='updateFilter($event)'
+                />
+              </div>
+            </label>
+          </div>
+        </div>
+        <ngx-datatable
+          #table
+          class='data-table'
+          [loadingIndicator]="loadingIndicator"
+          [columns]="columns"
+          [columnMode]="'force'"
+          [scrollbarH]="true"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="50"
+          [limit]="5"
+          [rows]='rowsBasic'>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+
+</div>
+<ng2-toasty></ng2-toasty>

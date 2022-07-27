@@ -1,0 +1,18 @@
+{
+  "name": "inventario-electronicos-sa",
+  "version": "1.0.0",
+  "description": "[https://app-electronicos-sa.herokuapp.com](https://app-electronicos-sa.herokuapp.com)",
+  "main": "SERVER/API/build/index.js",
+  "scripts": {
+    "deploy": "git push heroku",
+    "start": "node SERVER/API/build/index.js",
+    "build": "npm run --prefix APP/app-inventario-electronicos build && npm run --prefix SERVER/API build"
+  },
+  
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "12.22.12",
+    "npm": "6.14.16"
+  }
+}

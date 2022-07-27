@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Existencia</h5>
+      </div>
+      <div class="card-block">
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="dt-cust-search float-right">
+              <div class="form-group">
+                <label>Buscar: </label>
+                <input
+                  type='text'
+                  class="form-control input-sm m-l-10"
+                  placeholder=''
+                  (keyup)='updateFilter($event)'
+                />
+              </div>
+            </label>
+          </div>
+        </div>
+        <ngx-datatable
+          #table
+          class='data-table'
+          [loadingIndicator]="loadingIndicator"
+          [columns]="columns"
+          [columnMode]="'force'"
+          [scrollbarH]="true"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="50"
+          [limit]="5"
+          [rows]='rowsBasic'>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Opciones</h5>
+      </div>
+      <div class="card-block">
+        <form #insertForm="ngForm" (ngSubmit)="save(insertForm, $event)" class="form-material">
+
+
+          <button class="btn btn-inverse btn-block ripple light">
+            <span>Consultar</span>
+            <span class="loadering"></span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+<ng2-toasty></ng2-toasty>

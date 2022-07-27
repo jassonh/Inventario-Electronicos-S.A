@@ -1,0 +1,9 @@
+{
+    "_id": {
+      "$oid": "62de0b7c542e698d5d14975a"
+    },
+    "nombre": "Jasson",
+    "apellidos": "Oliva",
+    "nit": "2358930-1",
+    "email": "jasson@gmail.com"
+}

@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Hacer Venta</h5>
+      </div>
+      <div class="card-block">
+        <form #insertForm="ngForm" (ngSubmit)="save(insertForm, $event)" class="form-material">
+
+          <div class="form-group form-default form-static-label">
+            <input [(ngModel)]="data.fecha" required type="date" name="fecha" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Fecha</label>
+          </div>
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.cliente" required type="text" name="cliente" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Cliente</label>
+          </div>
+
+          <div class="form-group form-default">
+            <input [(ngModel)]="data.total" required type="text" name="total" class="form-control">
+            <span class="form-bar"></span>
+            <label class="float-label">Total</label>
+          </div>
+
+          <button class="btn btn-inverse btn-block ripple light">
+            <span>Guardar</span>
+            <span class="loadering"></span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Lista de Ventas</h5>
+      </div>
+      <div class="card-block">
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="dt-cust-search float-right">
+              <div class="form-group">
+                <label>Buscar: </label>
+                <input
+                  type='text'
+                  class="form-control input-sm m-l-10"
+                  placeholder=''
+                  (keyup)='updateFilter($event)'
+                />
+              </div>
+            </label>
+          </div>
+        </div>
+        <ngx-datatable
+          #table
+          class='data-table'
+          [loadingIndicator]="loadingIndicator"
+          [columns]="columns"
+          [columnMode]="'force'"
+          [scrollbarH]="true"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="50"
+          [limit]="5"
+          [rows]='rowsBasic'>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+
+</div>
+<ng2-toasty></ng2-toasty>
